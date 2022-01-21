@@ -12,5 +12,11 @@
 </head>
 <body>
     <h1 class="center">Wacky Widgets</h1>
+    <hr>
+    {% for w in widgets %}
+    {% empty %}
+    <h4>There ain't no widgets in here.</h4>
+    {% endfor %}
+    <hr>
 </body>
 </html>
