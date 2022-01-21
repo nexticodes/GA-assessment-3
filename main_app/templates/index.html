@@ -18,5 +18,11 @@
     <h4>There ain't no widgets in here.</h4>
     {% endfor %}
     <hr>
+
+    <form class="pure-form"  action="{% url 'add_widget'%}" method="POST">
+        {% csrf_token %}
+        {{ widget_form.as_p }}
+        <input type="submit" class="pure-button" value="Add Widget">
+    </form>
 </body>
 </html>
