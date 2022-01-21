@@ -13,3 +13,8 @@ def add_widget(request):
     if form.is_valid():
         form.save()
     return redirect('/')
+
+def delete_widget(request, widget_id):
+    Widget.objects.get(id=widget_id).delete()
+    return redirect('/')
+    

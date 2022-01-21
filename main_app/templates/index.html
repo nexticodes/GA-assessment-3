@@ -13,10 +13,22 @@
 <body>
     <h1 class="center">Wacky Widgets</h1>
     <hr>
-    {% for w in widgets %}
-    {% empty %}
-    <h4>There ain't no widgets in here.</h4>
-    {% endfor %}
+    <table class="pure-table pure-table-striped">
+        <tr>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Delete</th>
+        </tr>
+        {% for w in widgets %}
+        <tr>
+            <td>{{w.description}}</td>
+            <td>{{w.quantity}}</td>
+            <td><a href="{% url 'delete_widget' w.id%}">X</a></td>
+        </tr>
+        {% empty %}
+        <h4>There ain't no widgets in here.</h4>
+        {% endfor %}
+    </table>
     <hr>
 
     <form class="pure-form"  action="{% url 'add_widget'%}" method="POST">
