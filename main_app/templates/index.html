@@ -13,6 +13,9 @@
 <body>
     <h1 class="center">Wacky Widgets</h1>
     <hr>
+    {% if widgets|length == 0 %}
+    <h4>There ain't no widgets in here.</h4>
+    {% else %}
     <table class="pure-table pure-table-striped">
         <tr>
             <th>Description</th>
@@ -25,10 +28,9 @@
             <td>{{w.quantity}}</td>
             <td><a href="{% url 'delete_widget' w.id%}">X</a></td>
         </tr>
-        {% empty %}
-        <h4>There ain't no widgets in here.</h4>
         {% endfor %}
     </table>
+    {% endif %}
     <hr>
 
     <form class="pure-form"  action="{% url 'add_widget'%}" method="POST">
